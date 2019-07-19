@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ItemService;
+use App\Requests\Item\ShowRequest;
 
 class ItemController extends Controller
 {
@@ -18,6 +19,17 @@ class ItemController extends Controller
     {
         $res = $this->item_service->searchItems(
             []
+        );
+
+        return response($res);
+
+    }
+
+    public function show(ShowRequest $request)
+    {
+
+        $res = $this->item_service->getItemById(
+            $request->route('item_id')
         );
 
         return response($res);

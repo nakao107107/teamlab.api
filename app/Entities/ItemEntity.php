@@ -1,7 +1,9 @@
 <?php
 namespace App\Entities;
 
-class ItemEntity
+use Illuminate\Contracts\Support\Arrayable;
+
+class ItemEntity implements Arrayable
 {
     /**
      * @var int

@@ -25,4 +25,13 @@ class ItemService
     {
         return $this->item_repository->searchItems($params);
     }
+
+    /**
+     * idから在庫を取得する
+     * @return BaseEntityCollection[ItemEntity_sm]
+     */
+    public function getItemById(string $item_id)
+    {
+        return $this->item_repository->getItemById($item_id);
+    }
 }

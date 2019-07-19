@@ -40,5 +40,24 @@ class ItemRepository
 
     }
 
+    /**
+     * idから商品を取得する
+     * @param int $item_id 在庫ID
+     * @return Items
+     */
+    public function getItemById($item_id)
+    {
+
+        $model = $this->item::with($this->_getRelation());
+
+        $data = $model
+            ->where('id', $item_id)
+            ->firstOrFail()
+            ->toArray();
+
+        return EntityMapper::map($data, ItemEntity::class);
+
+    }
+
 
 }

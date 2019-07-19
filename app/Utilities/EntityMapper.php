@@ -30,6 +30,7 @@ class EntityMapper
     {
         return self::$jm->map($data, new $class);
     }
+
     /**
      * ↑のcollectionでラップする版
      *

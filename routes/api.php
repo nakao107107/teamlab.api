@@ -18,3 +18,4 @@ use Illuminate\Http\Request;
 //});
 
 Route::get ('/items', 'ItemController@index');
+Route::get ('/items/{item_id}', 'ItemController@show');
