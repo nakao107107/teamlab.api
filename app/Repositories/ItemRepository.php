@@ -88,5 +88,20 @@ class ItemRepository
         return true;
     }
 
+    /**
+     * 在庫情報の削除
+     *
+     * @param int $item_id 在庫ID
+     * @return bool
+     */
+    public function deleteItem(int $item_id){
+        $model = $this->item::where('id', $item_id);
+        $model = $model->firstOrFail();
+        return $model->delete();
+    }
+
+
+
+
 
 }

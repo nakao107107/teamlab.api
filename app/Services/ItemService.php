@@ -74,4 +74,19 @@ class ItemService
         $res = $this->item_repository->getItemById($item_id);
         return $res;
     }
+
+
+    /**
+     * 在庫を削除
+     *
+     * @param int $item_id 在庫ID
+     * @return boolean
+     */
+
+    public function deleteItem(int $item_id){
+        $res = $this->item_repository->deleteItem($item_id);
+        return $res;
+
+    }
+
 }

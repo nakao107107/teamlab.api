@@ -17,7 +17,8 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get  ('/items', 'ItemController@index');
-Route::get  ('/items/{item_id}', 'ItemController@show');
-Route::post ('/items', 'ItemController@store');
-Route::put  ('/items/{item_id}', 'ItemController@update');
+Route::get    ('/items', 'ItemController@index');
+Route::get    ('/items/{item_id}', 'ItemController@show');
+Route::post   ('/items', 'ItemController@store');
+Route::put    ('/items/{item_id}', 'ItemController@update');
+Route::delete ('/items/{item_id}', 'ItemController@delete');

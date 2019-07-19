@@ -6,6 +6,7 @@ use App\Services\ItemService;
 use App\Requests\Item\ShowRequest;
 use App\Requests\Item\StoreRequest;
 use App\Requests\Item\UpdateRequest;
+use App\Requests\Item\DeleteRequest;
 
 class ItemController extends Controller
 {
@@ -53,5 +54,13 @@ class ItemController extends Controller
             $request->validated()
         );
         return $res;
+    }
+
+    public function delete(DeleteRequest $request)
+    {
+        $res = $this->item_service->deleteItem(
+            $request->route('item_id')
+        );
+        return response('');
     }
 }
