@@ -34,4 +34,28 @@ class ItemService
     {
         return $this->item_repository->getItemById($item_id);
     }
+
+
+    /**
+     * 商品データを作成する
+     *
+     * @param array $params クエリ
+     * @return BasCaseEntity
+     * @throws
+     */
+    public function createCase(array $params)
+    {
+        //作成するケースのパラメータを決定
+        $case_params = array_merge($params, [
+            //store_idあとで修正
+            'store_id'  => 1
+        ]);
+
+        //ケースの作成
+        $case_id = $this->item_repository->createCase($case_params);
+
+        //できたケースを返す
+        $res = $this->item_repository->getItemById($case_id);
+        return $res;
+    }
 }

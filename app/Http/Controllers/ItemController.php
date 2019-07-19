@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\ItemService;
 use App\Requests\Item\ShowRequest;
+use App\Requests\Item\StoreRequest;
 
 class ItemController extends Controller
 {
@@ -34,5 +35,13 @@ class ItemController extends Controller
 
         return response($res);
 
+    }
+
+    public function store(StoreRequest $request)
+    {
+        $res = $this->item_service->createCase(
+            $request->validated()
+        );
+        return response($res);
     }
 }

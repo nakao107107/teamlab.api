@@ -59,5 +59,19 @@ class ItemRepository
 
     }
 
+    /**
+     * 商品データの新規挿入をする
+     * 新規作成されたidを返す
+     *
+     * @param array $params クエリ
+     * @return int
+     */
+    public function createCase(array $params)
+    {
+
+        $model = $this->item::create($params);
+        return $model->id;
+    }
+
 
 }
