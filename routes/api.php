@@ -20,3 +20,4 @@ use Illuminate\Http\Request;
 Route::get  ('/items', 'ItemController@index');
 Route::get  ('/items/{item_id}', 'ItemController@show');
 Route::post ('/items', 'ItemController@store');
+Route::put  ('/items/{item_id}', 'ItemController@update');

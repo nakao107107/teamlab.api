@@ -73,5 +73,20 @@ class ItemRepository
         return $model->id;
     }
 
+    /**
+     * 在庫情報の更新
+     *
+     * @param int $item_id 在庫ID
+     * @param array $params クエリ
+     * @return bool
+     */
+    public function updateItem(int $item_id, array $params)
+    {
+        $model = $this->item::where('id', $item_id);
+        $model = $model->firstOrFail();
+        $model->fill($params)->save();
+        return true;
+    }
+
 
 }

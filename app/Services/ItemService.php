@@ -58,4 +58,20 @@ class ItemService
         $res = $this->item_repository->getItemById($case_id);
         return $res;
     }
+
+
+    /**
+     * 在庫を更新
+     *
+     * @param int $store_id 店舗ID
+     * @param int $item_id 在庫ID
+     * @param array $params クエリ
+     * @return ItemEntity
+     */
+    public function updateItem(int $item_id, array $params)
+    {
+        $this->item_repository->updateItem($item_id, $params);
+        $res = $this->item_repository->getItemById($item_id);
+        return $res;
+    }
 }
