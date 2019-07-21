@@ -1,13 +1,17 @@
 <?php
+
 namespace App\Utilities;
+
 use App\Entities\BaseEntityCollection;
 use JsonMapper;
+
 class EntityMapper
 {
     /**
      * @var JsonMapper
      */
     private static $jm;
+
     /**
      * initialize
      */

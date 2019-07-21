@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class ItemImage extends Model
 {
-
     protected $fillable = [
         'id',
-        'name'
+        'item_id',
+        'url'
     ];
 
-
-    public function items()
+    public function item()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsTo(Item::class);
     }
 }

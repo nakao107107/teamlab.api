@@ -17,7 +17,7 @@ class ItemRepository
     private function _getRelation()
     {
         return [
-            'store'
+            'images'
         ];
     }
 

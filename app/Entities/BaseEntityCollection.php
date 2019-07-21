@@ -2,6 +2,7 @@
 namespace App\Entities;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Arrayable;
+
 class BaseEntityCollection extends Collection implements Arrayable
 {
     /*
@@ -13,6 +14,7 @@ class BaseEntityCollection extends Collection implements Arrayable
         $this->meta = $data;
         return $this;
     }
+
     /*
     デフォルトのtoArray
     */

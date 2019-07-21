@@ -19,5 +19,10 @@ class Item extends Model
         return $this->belongsTo(Store::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(ItemImage::class);
+    }
+
 
 }

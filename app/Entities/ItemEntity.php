@@ -30,6 +30,11 @@ class ItemEntity implements Arrayable
      */
     public $price;
 
+    /**
+     * @var BaseEntityCollection[ItemImageEntity]
+     */
+    public $images;
+
     /*
     classを配列に変換
     */
@@ -40,7 +45,8 @@ class ItemEntity implements Arrayable
             'store_id'    => $this->store_id,
             'name'        => $this->name,
             'description' => $this->description,
-            'price'       => $this->price
+            'price'       => $this->price,
+            'images'      => $this->images ? $this->images->toArray() : []
         ];
     }
 
