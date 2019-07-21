@@ -21,12 +21,7 @@ class ItemRepository
         ];
     }
 
-    /**
-     * 商品検索を行って、ヒットしたIDとヒット件数を返す
-     *
-     * @param array $params クエリ
-     * @return Items
-     */
+
     public function searchItems(array $params = [])
     {
 
@@ -40,11 +35,7 @@ class ItemRepository
 
     }
 
-    /**
-     * idから商品を取得する
-     * @param int $item_id 在庫ID
-     * @return Items
-     */
+
     public function getItemById($item_id)
     {
 
@@ -59,13 +50,7 @@ class ItemRepository
 
     }
 
-    /**
-     * 商品データの新規挿入をする
-     * 新規作成されたidを返す
-     *
-     * @param array $params クエリ
-     * @return int
-     */
+
     public function createCase(array $params, array $image_params)
     {
 
@@ -74,13 +59,7 @@ class ItemRepository
         return $model->id;
     }
 
-    /**
-     * 在庫情報の更新
-     *
-     * @param int $item_id 在庫ID
-     * @param array $params クエリ
-     * @return bool
-     */
+
     public function updateItem(int $item_id, array $params)
     {
         $model = $this->item::where('id', $item_id);
@@ -89,12 +68,7 @@ class ItemRepository
         return true;
     }
 
-    /**
-     * 在庫情報の削除
-     *
-     * @param int $item_id 在庫ID
-     * @return bool
-     */
+
     public function deleteItem(int $item_id){
         $model = $this->item::where('id', $item_id);
         $model = $model->firstOrFail();

@@ -17,10 +17,14 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
+
+//商品情報関連
 Route::get    ('/items', 'ItemController@index');
 Route::get    ('/items/{item_id}', 'ItemController@show');
 Route::post   ('/items', 'ItemController@store');
 Route::put    ('/items/{item_id}', 'ItemController@update');
 Route::delete ('/items/{item_id}', 'ItemController@delete');
 
+//店舗関連
+Route::get    ('/stores', 'StoreController@index');
 

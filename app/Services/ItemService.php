@@ -14,35 +14,19 @@ class ItemService
         $this->item_repository    = $item_repository;
     }
 
-    /**
-     * 在庫を検索する
-     *
-     * @param int $store_id 店舗ID
-     * @param array $params クエリ
-     * @return BaseEntityCollection[ItemEntity_sm]
-     */
+
     public function searchItems(array $params)
     {
         return $this->item_repository->searchItems($params);
     }
 
-    /**
-     * idから在庫を取得する
-     * @return BaseEntityCollection[ItemEntity_sm]
-     */
+
     public function getItemById(string $item_id)
     {
         return $this->item_repository->getItemById($item_id);
     }
 
 
-    /**
-     * 商品データを作成する
-     *
-     * @param array $params クエリ
-     * @return BasCaseEntity
-     * @throws
-     */
     public function createCase(array $params)
     {
         //image_urlパラメータの分離
@@ -67,14 +51,6 @@ class ItemService
     }
 
 
-    /**
-     * 在庫を更新
-     *
-     * @param int $store_id 店舗ID
-     * @param int $item_id 在庫ID
-     * @param array $params クエリ
-     * @return ItemEntity
-     */
     public function updateItem(int $item_id, array $params)
     {
         $this->item_repository->updateItem($item_id, $params);
@@ -82,13 +58,6 @@ class ItemService
         return $res;
     }
 
-
-    /**
-     * 在庫を削除
-     *
-     * @param int $item_id 在庫ID
-     * @return boolean
-     */
 
     public function deleteItem(int $item_id){
         $res = $this->item_repository->deleteItem($item_id);
