@@ -27,6 +27,11 @@ class ItemRepository
 
         $model = $this->item::with($this->_getRelation());
 
+        //storeが指定されている場合、storeで絞り込み
+        if(isset($params['store_id'])){
+            $model->where('store_id', $params['store_id']);
+        }
+
         $data = $model
             ->get()
             ->toArray();

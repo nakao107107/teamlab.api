@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\ItemService;
+
+use App\Requests\Item\IndexRequest;
 use App\Requests\Item\ShowRequest;
 use App\Requests\Item\StoreRequest;
 use App\Requests\Item\UpdateRequest;
@@ -18,10 +20,10 @@ class ItemController extends Controller
         $this->item_service = $item_service;
     }
 
-    public function index()
+    public function index(IndexRequest $request)
     {
         $res = $this->item_service->searchItems(
-            []
+            $request->validated()
         );
 
         return response($res);
