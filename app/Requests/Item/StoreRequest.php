@@ -9,10 +9,11 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'store_id'     => ['nullable', 'integer'],
-            'name'         => ['nullable', 'string', 'max:100'],
-            'description'  => ['nullable', 'string', 'max:500'],
-            'price'        => ['nullable', 'integer']
+//            'store_id'     => ['required', 'integer'],
+            'name'         => ['required', 'string', 'max:100'],
+            'description'  => ['required', 'string', 'max:500'],
+            'price'        => ['required', 'integer'],
+            'image_url'    => ['required', 'string']
         ];
     }
 }

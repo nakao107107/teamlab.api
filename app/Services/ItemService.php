@@ -45,14 +45,21 @@ class ItemService
      */
     public function createCase(array $params)
     {
-        //作成するケースのパラメータを決定
+        //image_urlパラメータの分離
+        $image_url = $params["image_url"];
+        $image_params = ["url" => $image_url];
+        unset($params['image_url']);
+
         $case_params = array_merge($params, [
             //store_idあとで修正
             'store_id'  => 1
         ]);
 
-        //ケースの作成
-        $case_id = $this->item_repository->createCase($case_params);
+        var_dump($image_params);
+        var_dump($case_params);
+
+        //商品データの作成
+        $case_id = $this->item_repository->createCase($case_params, $image_params);
 
         //できたケースを返す
         $res = $this->item_repository->getItemById($case_id);

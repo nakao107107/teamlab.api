@@ -66,10 +66,11 @@ class ItemRepository
      * @param array $params クエリ
      * @return int
      */
-    public function createCase(array $params)
+    public function createCase(array $params, array $image_params)
     {
 
         $model = $this->item::create($params);
+        $model->images()->create($image_params);
         return $model->id;
     }
 
@@ -99,9 +100,4 @@ class ItemRepository
         $model = $model->firstOrFail();
         return $model->delete();
     }
-
-
-
-
-
 }
