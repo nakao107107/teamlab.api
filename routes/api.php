@@ -12,7 +12,19 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+//商品情報関連
+Route::get    ('/items', 'ItemController@index');
+Route::get    ('/items/{item_id}', 'ItemController@show');
+Route::post   ('/items', 'ItemController@store');
+Route::put    ('/items/{item_id}', 'ItemController@update');
+Route::delete ('/items/{item_id}', 'ItemController@delete');
+
+//店舗関連
+Route::get    ('/stores', 'StoreController@index');
+
