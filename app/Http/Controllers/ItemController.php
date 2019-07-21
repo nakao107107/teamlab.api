@@ -43,7 +43,7 @@ class ItemController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $res = $this->item_service->createCase(
+        $res = $this->item_service->createItem(
             $request->validated()
         );
         return response($res);

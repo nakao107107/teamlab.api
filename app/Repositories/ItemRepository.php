@@ -56,9 +56,10 @@ class ItemRepository
     }
 
 
-    public function createCase(array $params, array $image_params)
+    public function createItem(array $params, array $image_params)
     {
 
+        //ここあとでtransaction処理入れないとバグる
         $model = $this->item::create($params);
         $model->images()->create($image_params);
         return $model->id;
