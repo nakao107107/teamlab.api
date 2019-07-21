@@ -9,6 +9,7 @@ class IndexRequest extends FormRequest
     {
         return [
             'store_id' => ['nullable', 'integer'],
+            'keyword'  => ['nullable', 'string']
         ];
     }
 }

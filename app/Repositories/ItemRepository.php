@@ -32,6 +32,12 @@ class ItemRepository
             $model->where('store_id', $params['store_id']);
         }
 
+        //keywordが指定されている場合、keywordで絞り込み
+        if(isset($params['keyword'])){
+            $keyword = $params['keyword'];
+            $model->where('name', 'LIKE', "%{$keyword}%");
+        }
+
         $data = $model
             ->get()
             ->toArray();
