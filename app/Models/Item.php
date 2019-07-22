@@ -24,5 +24,15 @@ class Item extends Model
         return $this->hasMany(ItemImage::class);
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleting(function($model) {
+            foreach ($model->images()->get() as $child) {
+                $child->delete();
+            }
+        });
+    }
+
 
 }
