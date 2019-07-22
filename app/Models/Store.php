@@ -17,4 +17,15 @@ class Store extends Model
     {
         return $this->hasMany(Item::class);
     }
+
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleting(function($model) {
+            foreach ($model->items()->get() as $child) {
+                $child->delete();
+            }
+        });
+    }
 }
